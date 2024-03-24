@@ -1,15 +1,18 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import Blog from "../Components/Blog";
+import UseLoader from "../Components/UseLoader";
 
 const Blogs = () => {
+  const navigation = useNavigation();
   const data = useLoaderData();
 
+  if (navigation.state === "loading") return <UseLoader />;
   return (
     <section>
       <div className=" max-w-7xl p-6 mx-auto space-y-6 sm:space-y-12">
         <Link
           rel="noopener noreferrer"
-          to="/"
+          to={`/blogs/${data[0].id}`}
           className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 "
         >
           <img src={data[0].cover_image} alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7" />
