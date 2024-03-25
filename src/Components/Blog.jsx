@@ -7,8 +7,6 @@ const Blog = ({ blog }) => {
   return (
     <Link
       to={`/blogs/${id}`}
-      rel="noopener noreferrer"
-      href="#"
       className="max-w-sm mx-auto group hover:no-underline focus:no-underline transition border-2 border-opacity-30 hover:border-primary border-secondary p-4 hover:scale-105 "
     >
       <img role="presentation" className="object-cover w-full rounded h-44 " src={cover_image || placeholderImg} />
